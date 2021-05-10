@@ -1,10 +1,9 @@
-# iantsga.py
-from random import randrange, random
-from ga import SimpleGA
-from ants import Ant
+# antsga.py
 
-class IPDGA(SimpleGA):
-    def __init__(self, npop=100, r=1):
+from ga import SimpleGA
+
+class AntsGA(SimpleGA):
+    def __init__(self, npop=100):
         pass
 
     def tournament(self):
@@ -13,8 +12,8 @@ class IPDGA(SimpleGA):
     def select(self):
         pass
 
-    def mate(self, p1, p2):    
+    def mate(self, a1, a2):    
         pass
 
-    def mutate(self, p):
+    def mutate(self, a):
         pass
