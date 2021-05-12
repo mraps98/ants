@@ -1,12 +1,12 @@
-from antsga import AntsGA
+# forage.py
+# A simulation of foraging ants
+import ants
+import simulation
+import visualizer
 
-ga = AntsGA()
+sim = simulation.Simulation(50, 50)
 
-while(True):
-    ga.evolve(10)
-    ga.tournament()
-    scores = []
-    for p in ga.p:
-        scores.append(p.score)
-    scores.sort()
-    
+for i in range(200):
+    sim.go()
+
+print("Yellow:", sim.patches.nestScore[0], "Red:", sim.patches.nestScore[1])
