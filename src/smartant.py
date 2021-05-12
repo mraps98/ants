@@ -1,10 +1,107 @@
 # smartant.py
 
-from ant import Ant
+from sys import path
+from ants import Ant, Patch
+import random
+
 
 class SmartAnt(Ant):
-    def strategy():
+    def __init__(self, patches, x, y, nestid, heading):
+        super().__init__(patches, x, y, nestid=nestid, heading=heading)
+        self.generateRandomString()
+        self.actionString = 0  # by default the ants will look for food
+        self.score = 0
+
+    def generateRandomString(self):
+        self.strategyString = bin(random.getrandbits(262144))
+
+    # action is left right forward wiggle
+    #           3     2     1       0
+    def generateActionString(self):
+        if self.aheadp.danger:
+            self.actionString = 1
+        elif self.leftp.danger:
+            self.actionString = random.randint(4, 7)
+        elif self.rightp.danger:
+            self.actionString = random.randint(8, 11)
+        elif self.aheadp.food:
+            self.actionString = 2
+        elif self.rightp.food:
+            self.actionString = 6
+        elif self.leftp.food:
+            self.actionString = 10
+
+    def strategy(self):
         """
-            A smarter strategy function
+        A smarter strategy function
         """
-        pass
+        if self.p.food:
+            self.pickupFood()
+        elif self.carryingFood:
+            self.returnToNest()
+        elif self.p.nest[self.nestid]:
+            if self.carryingFood:
+                self.dropFood()
+                self.score += 1
+        elif self.strategyString:
+            # self.actionString = ((1 << 4) - 1) & int(self.strategyString, 2)
+            if self.actionString == 0:
+                self.lookForFood()
+            elif self.actionString == 1:
+                self.wiggle()
+            elif self.actionString == 2:
+                self.forward(1)
+            elif self.actionString == 3:
+                self.forward(1)
+                self.wiggle()
+            elif self.actionString == 4:
+                self.right(45)
+            elif self.actionString == 5:
+                self.right(45)
+                self.wiggle()
+            elif self.actionString == 6:
+                self.right(45)
+                self.forward(1)
+            elif self.actionString == 7:
+                self.right(45)
+                self.forward(1)
+                self.wiggle()
+            elif self.actionString == 8:
+                self.left(45)
+            elif self.actionString == 9:
+                self.left(45)
+                self.wiggle()
+            elif self.actionString == 10:
+                self.left(45)
+                self.forward(1)
+            elif self.actionString == 11:
+                self.left(45)
+                self.forward(1)
+                self.wiggle()
+            elif self.actionString == 12:
+                self.left(45)
+                self.right(45)
+            elif self.actionString == 13:
+                self.left(45)
+                self.right(45)
+                self.wiggle()
+            elif self.actionString == 14:
+                self.left(45)
+                self.right(45)
+                self.forward(1)
+            elif self.actionString == 15:
+                self.left(45)
+                self.right(45)
+                self.forward(1)
+                self.wiggle()
+        else:
+            self.lookForFood()
+
+    def printStrategyToFile(self, filename):
+        file = open(filename, "a+")
+        file.write(self.strategyString + "\n")
+        file.close()
+
+    def readStrategyFromFile(self, filename):
+        file = open(filename, "r")
+        self.strategyString = random.choice(file.read().splitlines())
