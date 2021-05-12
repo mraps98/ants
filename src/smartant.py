@@ -37,6 +37,11 @@ class SmartAnt(Ant):
         A smarter strategy function
         """
         self.generateActionString()
+
+
+        # read action string from strategy.txt
+        self.readActionFromFile()
+
         if self.p.food:
             self.pickupFood()
         elif self.carryingFood:
@@ -106,3 +111,9 @@ class SmartAnt(Ant):
     def readStrategyFromFile(self, filename):
         file = open(filename, "r")
         self.strategyString = random.choice(file.read().splitlines())
+        file.close()
+
+    def readActionFromFile(self, fileName="./action.dat"):
+        file = open(fileName, "r")
+        self.actionString = int(file.read())
+        file.close()
