@@ -1,4 +1,5 @@
 from smartant import SmartAnt
+from ants import Ant
 from patch import PatchGrid
 import random
 
@@ -67,5 +68,9 @@ class Simulation:
         Override this function to change the type of ant the simulation creates.
         """
 
-        for i in range(count):
-            self.ants.append(SmartAnt(self.patches, x, y, nestid))
+        if nestid == 0:
+            for i in range(count):
+                self.ants.append(SmartAnt(self.patches, x, y, nestid))
+        else:
+            for i in range(count):
+                self.ants.append(Ant(self.patches, x, y, nestid))

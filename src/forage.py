@@ -11,4 +11,4 @@ for i in range(200):
     sim.go()
     window.update()
 
-print("Yellow:", sim.patches.nestScore[0], "Red:", sim.patches.nestScore[1])
+print("SmartAnts:", sim.patches.nestScore[0], "NormalAnts:", sim.patches.nestScore[1])
