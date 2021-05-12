@@ -41,8 +41,7 @@ class SmartAnt(Ant):
             self.pickupFood()
         elif self.carryingFood:
             self.returnToNest()
-        elif self.p.nest[self.nestid]:
-            if self.carryingFood:
+        elif self.p.nest[self.nestid] and self.carryingFood:
                 self.dropFood()
                 self.score += 1
         elif self.strategyString:
