@@ -12,3 +12,13 @@ for i in range(200):
     window.update()
 
 print("SmartAnts:", sim.patches.nestScore[0], "NormalAnts:", sim.patches.nestScore[1])
+
+
+f = open("./ants.log", "a+")
+f.writelines(
+    "SmartAnts: "
+    + str(sim.patches.nestScore[0])
+    + " NormalAnts: "
+    + str(sim.patches.nestScore[1])
+)
+f.close()
