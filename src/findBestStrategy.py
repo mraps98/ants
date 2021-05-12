@@ -1,7 +1,11 @@
 # find best strategy
 scores = []
-f = open("./ants.log", "r")
-scores.append(f.readline().split(",")[1])
+f = open("ants.log", "r")
+allLines = f.readlines()
+
+for i in range(1, len(allLines)):
+    smartAntScore= allLines[i].split(",")[1]
+    scores.append(int(smartAntScore))
 f.close()
 highestScore = max(scores)
 bestStrategy = scores.index(highestScore)

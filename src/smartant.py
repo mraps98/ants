@@ -55,51 +55,66 @@ class SmartAnt(Ant):
                 self.lookForFood()
             elif self.actionString == 1:
                 self.wiggle()
+                self.lookForFood()
             elif self.actionString == 2:
                 self.forward(1)
+                self.lookForFood()
             elif self.actionString == 3:
                 self.forward(1)
                 self.wiggle()
+                self.lookForFood()
             elif self.actionString == 4:
                 self.right(45)
+                self.lookForFood()
             elif self.actionString == 5:
                 self.right(45)
                 self.wiggle()
+                self.lookForFood()
             elif self.actionString == 6:
                 self.right(45)
                 self.forward(1)
+                self.lookForFood()
             elif self.actionString == 7:
                 self.right(45)
                 self.forward(1)
                 self.wiggle()
+                self.lookForFood()
             elif self.actionString == 8:
                 self.left(45)
+                self.lookForFood()
             elif self.actionString == 9:
                 self.left(45)
                 self.wiggle()
+                self.lookForFood()
             elif self.actionString == 10:
                 self.left(45)
                 self.forward(1)
+                self.lookForFood()
             elif self.actionString == 11:
                 self.left(45)
                 self.forward(1)
                 self.wiggle()
+                self.lookForFood()
             elif self.actionString == 12:
                 self.left(45)
                 self.right(45)
+                self.lookForFood()
             elif self.actionString == 13:
                 self.left(45)
                 self.right(45)
                 self.wiggle()
+                self.lookForFood()
             elif self.actionString == 14:
                 self.left(45)
                 self.right(45)
                 self.forward(1)
+                self.lookForFood()
             elif self.actionString == 15:
                 self.left(45)
                 self.right(45)
                 self.forward(1)
                 self.wiggle()
+                self.lookForFood()
         else:
             self.lookForFood()
 
