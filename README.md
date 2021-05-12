@@ -5,3 +5,9 @@
 ## This code was used for our CS653-FX1 (Bio Inspired Computation) class project 5 (Genetic Ants)
 
 ## Team members for project: Tingxuan He, Sipei Chen and Amritpreet Singh
+
+## Usage:
+### This will not visualize but will make a log file called ants.log
+cd src
+chmod+x "./ga.bash"
+./ga.bash
