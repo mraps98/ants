@@ -9,5 +9,5 @@ print("Best Strategy = ", bestStrategy)
 
 # update best strategy in action.dat
 f = open("./action.dat", "w")
-f.write(bestStrategy)
+f.write(str(bestStrategy))
 f.close()
