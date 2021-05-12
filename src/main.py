@@ -10,8 +10,6 @@ sim = simulation.Simulation(50, 50)
 for i in range(200):
     sim.go()
 
-scoresDict = DefaultDict()
-
 f = open("./action.dat", "r")
 currentAction = int(f.read())
 f.close()
