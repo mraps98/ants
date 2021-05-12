@@ -1,12 +1,13 @@
 # smartant.py
 
 from sys import path
-from ants import Ant, Patch
+from ants import Ant
+from patch import Patch
 import random
 
 
 class SmartAnt(Ant):
-    def __init__(self, patches, x, y, nestid, heading):
+    def __init__(self, patches, x, y, nestid=0, heading=0):
         super().__init__(patches, x, y, nestid=nestid, heading=heading)
         self.generateRandomString()
         self.actionString = 0  # by default the ants will look for food
@@ -35,6 +36,7 @@ class SmartAnt(Ant):
         """
         A smarter strategy function
         """
+        self.generateActionString()
         if self.p.food:
             self.pickupFood()
         elif self.carryingFood:

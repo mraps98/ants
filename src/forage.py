@@ -1,9 +1,10 @@
 # forage.py
 # A simulation of foraging ants
 import ants
+import simulation
 import visualizer
 
-sim = ants.Simulation(50, 50)
+sim = simulation.Simulation(50, 50)
 window = visualizer.Visualizer(sim)
 
 for i in range(200):
