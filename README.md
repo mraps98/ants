@@ -8,6 +8,6 @@
 
 ## Usage:
 ### This will not visualize but will make a log file called ants.log
-cd src
-chmod+x "./ga.bash"
-./ga.bash
+1. cd src
+2. chmod+x "./ga.bash"
+3. ./ga.bash
